@@ -21,7 +21,7 @@ grass2.Value |> printfn "%s" // Hello, world!
 
 type Grass3 = Grass<"wwwwvwvwwWWwvwwWwwvwwwwWWWwwWwwWWWWWWwwwwWwwvwWWwWwwvwWWWwwwwwWwwwwwwWWwWWWwWWWWWWwWWWWWWWWwwwWwwWWWWWWWWWWwWwwwwwWWWWWWWWWWWwwwwwWWWWWWWWWWWWwwwwWWWWWWWWWWWWWwwwWWWWWWWWWWWWWWwwwWWWWWWWWWWWWWWWwWWWWWWWWWWWWWWWWWWwwwWwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWwwwwwwwwwwwwwwwwwwwwwwww‚ÍwwwwwWWWWWWWWWWWWWWWwWwwwWWWW‚í‚¢WWWWWWWwwwWwwWWWWWWWWWWWWwwww‚ë‚ÍwWwwwwwwwWWWWWWWWWWWWWWWWWwwww‚·‚¢wwwWwwWWWWWWWWWWWWWWWWWWwwwww‚íwwwwWwwWWWWWWWWWWWWWWWWWWWWW‚ëWWWWWWWWWwwwwwwwwwwwWwwWWWWWWW‚·WWWWWWWWWwwwwwwwwwwwwwWwwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwwwwwwWWwwwwwwwwwWWWwwWWWWwwwwwwwwwwwwwwwWWWWWwwWWWWWWwwwwWWWWWWWwwWWWWWWWWwwwwWWWWWWWWWwwWWWWWWWWWWwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwWwwwWWwwwwwwwwwwwwwwwwwwWWWwwWWWWwwwwwwwwwwwwwwwwwwwwwwwwWWWWWwwWWWWWWwwwwwwwWWWWWWWwwWWWWWWWWwwwwwwWWWWWWWWWwwWWWWWWWWWWwwwwwwWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwww">
 let grass3 = new Grass3()
-grass3.Run() // ‚Í‚¢‚Í‚¢‚í‚ë‚·\n
-grass3.Value |> printfn "%s" // ‚Í‚¢‚Í‚¢‚í‚ë‚·\n
+grass3.Run() // ‚Í‚¢‚Í‚¢‚í‚ë‚·‚í‚ë‚·\n
+grass3.Value |> printfn "%s" // ‚Í‚¢‚Í‚¢‚í‚ë‚·‚í‚ë‚·\n
 ```
 
