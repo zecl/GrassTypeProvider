@@ -40,14 +40,14 @@ wwwwwwwwwwwwwwwwww
 
 type Grass4 = Grass<www4>
 let grass4 = new Grass4()
-grass4.Run() // Hello, world!\n
-grass4.Value |> printfn "%s" // Hello, world!\n
+grass4.Run() // Hello, world!
+grass4.Value |> printfn "%s" // Hello, world!
 
 
 type Grass5 = Grass<"www5.www">
 let grass5 = new Grass4()
-grass5.Run() // Hello, world!\n
-grass5.Value |> printfn "%s" // Hello, world!\n
+grass5.Run() // Hello, world!
+grass5.Value |> printfn "%s" // Hello, world!
 
 System.Console.ReadKey () |> ignore
 
