@@ -50,15 +50,17 @@ type Grass4 = Grass<www4>
 let grass4 = new Grass4()
 grass4.Run() // Hello, world!
 grass4.Value |> printfn "%s" // Hello, world!
+```
 
+# リソースから読めるように
 
-// コンテンツから読み込む
+拡張子 .www をプロジェクトに追加して「コンテンツ」にすると、読み込めるようにしました。
+
+```Program.fs
+// リソースから読み込む
 type Grass5 = Grass<"www5.www">
 let grass5 = new Grass4()
 grass5.Run() // Hello, world!
 grass5.Value |> printfn "%s" // Hello, world!
 ```
 
-# リソースから読めるように
-
-拡張子 .www をプロジェクトに追加して「コンテンツ」にすると、読み込めるようにしました。
