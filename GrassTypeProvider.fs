@@ -14,8 +14,20 @@ type GrassTypeProvider(config: TypeProviderConfig) as this =
   do typ.DefineStaticParameters(
         [ProvidedStaticParameter("grassCode", typeof<string>)],
         fun typeName parameters ->
-          match parameters with
-          | [| :? string as grassCode |] ->
+              // コンテンツから読み込めるように追加
+              let grassCode = 
+                let str = string parameters.[0]
+                if str.EndsWith(".www") = false then
+                    str
+                else
+                    let path = config.ResolutionFolder + "\\" + str
+                    try
+                        System.IO.File.ReadAllText(path)
+                    with
+                    | _ -> 
+                        failwithf "Error xaml path %A" path
+          // match parameters with
+          // | [| :? string as grassCode|]  ->
               let typ = ProvidedTypeDefinition(asm, ns, typeName, Some typeof<obj>, HideObjectMethods = true)
               let ctor = ProvidedConstructor(parameters = [ ], 
                                              InvokeCode= (fun args -> <@@ grassCode :> obj @@>))
@@ -41,7 +53,7 @@ type GrassTypeProvider(config: TypeProviderConfig) as this =
 
               typ.HideObjectMethods <- true
               typ
-          | _ -> failwith "Invalid parameter"
+          // | _ -> failwith "Invalid parameter"
   )
   do this.AddNamespace(ns, [typ])
   
