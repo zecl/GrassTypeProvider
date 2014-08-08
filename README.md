@@ -23,6 +23,40 @@ type Grass3 = Grass<"wwwwvwvwwWWwvwwWwwvwwwwWWWwwWwwWWWWWWwwwwWwwvwWWwWwwvwWWWww
 let grass3 = new Grass3()
 grass3.Run() // はいはいわろすわろす\n
 grass3.Value |> printfn "%s" // はいはいわろすわろす\n
+
+[<Literal>]
+let www4 = """
+wvwwWWwWWWwvWwwwwWWwWWWwWWWWwWWWWWw
+WWWWWWwWWWWWWWwWwwwwwwwwwwwwWWWWwWW
+WWWWWwWWWWWWWWWWWWWWwWWWWWWWWWWWwwW
+WWWWWWWWWwwWWWWWWWWWWWWwWWWWWWWWWWw
+wWWWWWWWWWWwwwwwwWWWWWWWWWWWWWWWwWW
+WWWWWWWWWWWWWWWWWWWwWWWWWWWWWWWWWWW
+WWWwwWWWWWWWWWWWWWWWWWwwWWWWWWWWWWW
+WWWWWWwwwwwWWWWWWWWWWWWWWWWWWWWwwWW
+WWWWWWWWWWWWWWWWWWWWwWWWWWWWWWWWWWW
+WWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwww
+wwWwwwwwwwwwwWWwwwwwwwWWWwwwwwwwWWW
+WwWWWWWwwwwwwwwWWWWWWwwwwwwwwwwwwww
+wwWWWWWWWwwwwwwwwwwwwwwwwwwwwWWWWWW
+WWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwWWWWWWWWWwwwwWWWWWWWWWWwwwwwwwww
+wwWWWWWWWWWWWwwwwwwwWWWWWWWWWWWWwww
+wwwwwwwwwwwwwwwWWWWWWWWWWWWWwwwwwww
+wwwwwwwwwwwwwwwwww
+"""
+
+type Grass4 = Grass<www4>
+let grass4 = new Grass4()
+grass4.Run() // Hello, world!
+grass4.Value |> printfn "%s" // Hello, world!
+
+
+// コンテンツから読み込む
+type Grass5 = Grass<"www5.www">
+let grass5 = new Grass4()
+grass5.Run() // Hello, world!
+grass5.Value |> printfn "%s" // Hello, world!
 ```
 
 # リソースから読めるように
