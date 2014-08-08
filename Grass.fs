@@ -9,15 +9,6 @@ let queue = new System.Collections.Generic.Queue<byte> ()
 let list = new List<string>()
 let addList x = list.Add x
 
-//let private write =
-//  (fun _ (c : char) ->
-//  let (|HEIGHT|_|) x = match x with | x when x >= 0x81uy && x <= 0x9Fuy || x >= 0xE0uy -> Some x | _ -> None
-//  let (|LOW|_|) x = match x with | x when x >= 0x40uy && x <= 0x7Euy || x >= 0x80uy && x <= 0xFCuy -> Some x | _ -> None
-//  match c |> byte with
-//   | HEIGHT x when queue.Count = 0 -> x |> queue.Enqueue 
-//   | LOW x when queue.Count <> 0 -> [|queue.Dequeue (); x|] |> System.Text.Encoding.GetEncoding(932).GetString |> Console.Write
-//   | _ -> Console.Write c ) ()
-
 let private write =
   (fun _ (c : char) ->
   let (|HEIGHT|_|) x = match x with | x when x >= 0x81uy && x <= 0x9Fuy || x >= 0xE0uy -> Some x | _ -> None
