@@ -1,4 +1,5 @@
 ﻿namespace TypeProvider.Sample
+open System.IO
 open System.Reflection
 open Microsoft.FSharp.Core.CompilerServices
 open ProviderImplementation.ProvidedTypes
@@ -14,20 +15,17 @@ type GrassTypeProvider(config: TypeProviderConfig) as this =
   do typ.DefineStaticParameters(
         [ProvidedStaticParameter("grassCode", typeof<string>)],
         fun typeName parameters ->
-              // コンテンツから読み込めるように追加
               let grassCode = 
                 let str = string parameters.[0]
                 if str.EndsWith(".www") = false then
-                    str
+                  str
                 else
-                    let path = config.ResolutionFolder + "\\" + str
-                    try
-                        System.IO.File.ReadAllText(path)
-                    with
-                    | _ -> 
-                        failwithf "Error xaml path %A" path
-          // match parameters with
-          // | [| :? string as grassCode|]  ->
+                  let path = Path.Combine(config.ResolutionFolder, str)
+                  try
+                    File.ReadAllText(path)
+                  with
+                  | _ -> 
+                      failwithf "Error www path %A" path
               let typ = ProvidedTypeDefinition(asm, ns, typeName, Some typeof<obj>, HideObjectMethods = true)
               let ctor = ProvidedConstructor(parameters = [ ], 
                                              InvokeCode= (fun args -> <@@ grassCode :> obj @@>))
@@ -39,7 +37,7 @@ type GrassTypeProvider(config: TypeProviderConfig) as this =
                                   parameters = [], 
                                   returnType = typeof<unit>, 
                                   InvokeCode = (fun _ -> <@@ result |> printfn "%s" @@>))
-                instanceMeth.AddXmlDocDelayed (fun () -> System.String.Format("[{0}]を出力します。", result))
+                instanceMeth.AddXmlDocDelayed (fun () -> System.String.Format("\"{0}\"を出力します。", result))
                 instanceMeth)
 
               typ.AddMemberDelayed(fun () -> 
@@ -48,12 +46,11 @@ type GrassTypeProvider(config: TypeProviderConfig) as this =
                   ProvidedProperty(propertyName = "Value", 
                                    propertyType = typeof<string>, 
                                    GetterCode= (fun _ -> <@@ result @@>))
-                instanceProp.AddXmlDocDelayed (fun () -> System.String.Format("出力結果[{0}]を取得します。", result))
+                instanceProp.AddXmlDocDelayed (fun () -> System.String.Format("出力結果\"{0}\"を取得します。", result))
                 instanceProp)
 
               typ.HideObjectMethods <- true
               typ
-          // | _ -> failwith "Invalid parameter"
   )
   do this.AddNamespace(ns, [typ])
   
